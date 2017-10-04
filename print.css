@@ -1,0 +1,167 @@
+@page {
+    size: 6in 9in;
+    font-size: 10pt;
+    color: gray;
+    @bottom-center {
+        content: counter(page); 
+        vertical-align: top;
+             }
+         }
+@page :right {
+    margin: 48pt 50pt;
+    @top-center {
+        content: "Arthur Conan Doyle";
+        vertical-align: bottom;
+        padding-bottom: 11pt;
+    }
+}
+
+@page :left {
+    margin: 48pt 50pt; 
+    @top-center {
+        content: "A Study in Scarlet";
+        vertical-align: bottom;
+        padding-bottom: 11pt;
+    }
+}
+@page :first {
+    @top-center {
+        content: "";
+    }
+    @bottom-center {
+        content: " ";
+    }
+}
+
+@page :blank {
+    @bottom-center {
+        content: "";
+    }
+    @top-center {
+        content: "";
+    }
+}
+
+@page partopen {
+    @bottom-center {
+        content: "";
+    }
+    @top-center {
+        content: "";
+    }
+}
+
+@page chapopen {
+    @bottom-center {
+        content: counter(page);
+        vertical-align: top;
+    }
+    @top-center {
+        content: "";
+    }
+}
+
+
+body { 
+    color: black;
+    text-align: justify;
+    font-family: "Adobe Caslon Pro";
+
+}
+
+section.chapopen {
+    page: chapopen;
+    counter-increment: chapterNumber;
+    line-height: 2;
+    margin-top: 25%;
+    margin-bottom: 72pt;
+    text-align: center;
+    break-before: right;
+}
+
+section.chapopen::before {
+    content: "Chapter " counter(chapterNumber);
+    text-align: center;
+    font-family: 'Marta';
+    font-size: 11pt;
+    padding-bottom: 2pt;
+    font-weight: bold;
+}
+
+section.partopen {
+    page: partopen;
+    counter-increment: partNumber;
+    text-align: center;
+    margin: 25% 0 25% 0;
+    break-before: right;
+    counter-reset: chapterNumber;
+}
+
+section.partopen::before {
+    content: "Part " counter(partNumber, upper-roman);
+    text-align: center;
+    font-family: 'Marta';
+    font-size: 17.5pt;
+    padding-bottom: 2pt;
+    font-weight: bold;
+
+}
+
+section.titlepage {
+    font-family: 'Marta';
+    margin: 50% 0 25% 0;
+    text-align: center;
+    page-break-after: always;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    margin-bottom: 72pt;
+    font-family: 'Marta';
+    hyphens: none;
+    font-weight: bold;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+    text-align: center;
+}
+p {
+    font-size: 11pt;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0;
+    text-indent: 16.5pt;
+    widows: 02;
+    orphans: 02;
+    hyphenate-before: 3;
+    hyphenate-after: 3;
+    hyphenate-lines: 2;
+}
+h1 {
+    bookmark-level: 1;
+    font-size: 11pt;
+    margin-top: 0;
+}
+h2 {
+    bookmark-level: 2;
+    font-size: 16.5pt;
+    margin-top: 0;
+}
+p.center {
+    text-align: center;
+    text-indent: 0;
+}
+
+section.chapopen + p, p.center + p {
+    text-indent: 0;
+}
+
+p.title {
+    font-size: 23pt;
+}
+p.byline {
+    font-size: 11.5pt;
+}
+
+p.byline::before {
+    content: "by ";
+}
