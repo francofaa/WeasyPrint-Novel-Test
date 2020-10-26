@@ -10,7 +10,7 @@
 @page :right {
     margin: 48pt 50pt;
     @top-center {
-        content: "Arthur Conan Doyle";
+        content: "Scarlett Larouge";
         vertical-align: bottom;
         padding-bottom: 11pt;
     }
@@ -19,7 +19,7 @@
 @page :left {
     margin: 48pt 50pt; 
     @top-center {
-        content: "A Study in Scarlet";
+        content: "Delta Bayou and the Miss Dixieland Pageant";
         vertical-align: bottom;
         padding-bottom: 11pt;
     }
@@ -61,15 +61,10 @@
     }
 }
 
-
-body { 
+body {
     color: black;
     text-align: justify;
     font-family: "Adobe Caslon Pro";
-
-}
-
-section.chapopen {
     page: chapopen;
     counter-increment: chapterNumber;
     line-height: 2;
@@ -79,15 +74,15 @@ section.chapopen {
     break-before: right;
 }
 
-section.chapopen::before {
+body::before {
     content: "Chapter " counter(chapterNumber);
     text-align: center;
-    font-family: 'Marta';
+    font-family: Limelight;
     font-size: 11pt;
     padding-bottom: 2pt;
     font-weight: bold;
 }
-
+/*
 section.partopen {
     page: partopen;
     counter-increment: partNumber;
@@ -105,10 +100,10 @@ section.partopen::before {
     padding-bottom: 2pt;
     font-weight: bold;
 
-}
+}*/
 
 section.titlepage {
-    font-family: 'Marta';
+    font-family: Limelight;
     margin: 50% 0 25% 0;
     text-align: center;
     page-break-after: always;
@@ -116,7 +111,7 @@ section.titlepage {
 
 h1, h2, h3, h4, h5, h6 { 
     margin-bottom: 72pt;
-    font-family: 'Marta';
+    font-family: Limelight;
     hyphens: none;
     font-weight: bold;
     page-break-inside: avoid;
@@ -135,6 +130,7 @@ p {
     hyphenate-before: 3;
     hyphenate-after: 3;
     hyphenate-lines: 2;
+    text-align: justify;
 }
 h1 {
     bookmark-level: 1;
@@ -151,7 +147,7 @@ p.center {
     text-indent: 0;
 }
 
-section.chapopen + p, p.center + p {
+h1 + p, hr + p {
     text-indent: 0;
 }
 
@@ -164,4 +160,15 @@ p.byline {
 
 p.byline::before {
     content: "by ";
+}
+
+hr {
+    border: none;
+    text-align: center;
+    padding: 2rem 0;
+}
+hr:after {
+    content: "* * *";
+    text-align: center;
+    font-size: 1.5rem;
 }
